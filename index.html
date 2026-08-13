@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>+2 GOVT. HS Kharsawan | Official School Website</title>
+<meta name="description" content="+2 GOVT. HIGH SCHOOL, Kharsawan — established 1948, Department of Education, Saraikela Kharsawan, Jharkhand. Grades 9 to 12, co-educational government school.">
+<meta name="theme-color" content="#3B6BFF">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#060B18;
+    --navy-soft:#0C1730;
+    --panel:#0F1B38;
+    --blue:#3B6BFF;
+    --sky:#4FD8FF;
+    --gold:#E0B75C;
+    --gold-soft:#F3D794;
+    --ink:#EAF1FF;
+    --ink-dim:#A9B7D9;
+    --line:rgba(255,255,255,0.09);
+    --glass:rgba(17,28,58,0.55);
+    --glass-light:rgba(255,255,255,0.06);
+    --radius:20px;
+    --shadow-glow:0 0 60px rgba(59,107,255,0.25);
+    --ease:cubic-bezier(.22,.9,.3,1);
+  }
+  html[data-theme="light"]{
+    --navy:#F3F6FD;--navy-soft:#E9EFFC;--panel:#FFFFFF;
+    --blue:#2952E3;--sky:#159FCB;--gold:#B98A2E;--gold-soft:#D9AE5C;
+    --ink:#101830;--ink-dim:#4B587A;--line:rgba(16,24,48,0.1);
+    --glass:rgba(255,255,255,0.65);--glass-light:rgba(16,24,48,0.04);
+    --shadow-glow:0 0 60px rgba(41,82,227,0.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--ink);overflow-x:hidden;transition:background .5s var(--ease), color .5s var(--ease);}
+  ::selection{background:var(--blue);color:#fff;}
+  ::-webkit-scrollbar{width:9px;}
+  ::-webkit-scrollbar-track{background:var(--navy);}
+  ::-webkit-scrollbar-thumb{background:linear-gradient(var(--blue),var(--sky));border-radius:10px;}
+  h1,h2,h3,h4,.brand,.stat-num,.btn,.eyebrow,.nav-links a{font-family:'Outfit',sans-serif;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  button{font-family:inherit;}
+  section{position:relative;padding:130px 8vw;}
+  @media(max-width:768px){section{padding:90px 6vw;}}
+
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-soft);font-weight:600;margin-bottom:18px;}
+  .eyebrow::before{content:"";width:26px;height:1.5px;background:var(--gold);}
+  .section-head{max-width:700px;margin:0 auto 60px;text-align:center;}
+  .section-head h2{font-size:clamp(30px,4vw,44px);font-weight:700;line-height:1.15;letter-spacing:-.5px;}
+  .section-head p{color:var(--ink-dim);margin-top:16px;font-size:16.5px;line-height:1.7;}
+
+  /* LOADER */
+  #loader{position:fixed;inset:0;z-index:9999;background:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;transition:opacity .7s var(--ease), visibility .7s var(--ease);}
+  #loader.hide{opacity:0;visibility:hidden;}
+  .loader-crest{width:64px;height:64px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--gold);animation:spin 1s linear infinite;}
+  .loader-word{font-family:'Outfit',sans-serif;letter-spacing:3px;font-size:12.5px;color:var(--ink-dim);text-transform:uppercase;text-align:center;padding:0 20px;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  #progress-bar{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--blue),var(--sky),var(--gold));z-index:9998;transition:width .1s linear;}
+  #cursor-glow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:2;background:radial-gradient(circle,rgba(79,216,255,0.10),transparent 70%);transform:translate(-50%,-50%);left:-999px;top:-999px;}
+  @media(max-width:900px){#cursor-glow{display:none;}}
+
+  /* NAVBAR */
+  nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:16px 6vw;background:var(--glass);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);border-bottom:1px solid var(--line);transition:padding .35s var(--ease);}
+  nav.scrolled{padding:11px 6vw;}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:17.5px;letter-spacing:.2px;}
+  .brand-mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--blue),var(--sky));display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff;box-shadow:0 6px 18px rgba(59,107,255,0.4);flex-shrink:0;}
+  .brand span{color:var(--gold-soft);}
+  .nav-links{display:flex;gap:4px;list-style:none;align-items:center;}
+  .nav-links a{position:relative;padding:9px 14px;font-size:14px;font-weight:500;color:var(--ink-dim);border-radius:30px;transition:color .3s;white-space:nowrap;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-links a.active{color:var(--ink);}
+  .nav-links a.active::after{content:"";position:absolute;left:14px;right:14px;bottom:3px;height:2px;background:linear-gradient(90deg,var(--blue),var(--sky));border-radius:2px;}
+  .nav-right{display:flex;align-items:center;gap:12px;}
+  .theme-toggle{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--glass-light);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--ink);transition:transform .3s var(--ease);flex-shrink:0;}
+  .theme-toggle:hover{transform:rotate(20deg) scale(1.08);}
+  .nav-cta{padding:10px 20px;border-radius:30px;font-weight:600;font-size:13.5px;background:linear-gradient(135deg,var(--blue),var(--sky));color:#fff;box-shadow:0 8px 22px rgba(59,107,255,.35);transition:transform .3s var(--ease);white-space:nowrap;}
+  .nav-cta:hover{transform:translateY(-2px);}
+  .burger{display:none;width:26px;height:20px;position:relative;cursor:pointer;background:none;border:none;flex-shrink:0;}
+  .burger span{position:absolute;left:0;width:100%;height:2px;background:var(--ink);border-radius:2px;transition:.3s;}
+  .burger span:nth-child(1){top:0;} .burger span:nth-child(2){top:9px;} .burger span:nth-child(3){top:18px;}
+  .burger.open span:nth-child(1){transform:translateY(9px) rotate(45deg);}
+  .burger.open span:nth-child(2){opacity:0;}
+  .burger.open span:nth-child(3){transform:translateY(-9px) rotate(-45deg);}
+  @media(max-width:1050px){
+    .nav-links{position:fixed;top:0;right:-100%;height:100vh;width:76vw;max-width:340px;background:var(--panel);flex-direction:column;justify-content:center;align-items:flex-start;padding:40px;gap:6px;transition:right .45s var(--ease);border-left:1px solid var(--line);overflow-y:auto;}
+    .nav-links.open{right:0;}
+    .nav-links a{font-size:17px;width:100%;padding:13px 10px;}
+    .burger{display:block;}
+    .nav-cta{display:none;}
+  }
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:160px 6vw 100px;
+    background:radial-gradient(ellipse 60% 50% at 50% 0%, rgba(59,107,255,.22), transparent 60%),radial-gradient(ellipse 50% 40% at 85% 20%, rgba(79,216,255,.14), transparent 60%),var(--navy);}
+  .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;animation:float 14s ease-in-out infinite;z-index:0;}
+  .blob1{width:420px;height:420px;background:radial-gradient(circle,var(--blue),transparent 70%);top:-120px;left:-100px;}
+  .blob2{width:360px;height:360px;background:radial-gradient(circle,var(--sky),transparent 70%);bottom:-100px;right:-80px;animation-delay:-4s;}
+  .blob3{width:260px;height:260px;background:radial-gradient(circle,var(--gold),transparent 70%);top:40%;right:8%;opacity:.28;animation-delay:-8s;}
+  @keyframes float{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(30px,-40px) scale(1.08);}}
+  .hero-beacon{position:absolute;top:50%;left:50%;width:640px;height:640px;transform:translate(-50%,-52%);border-radius:50%;z-index:0;background:conic-gradient(from 0deg, var(--blue), var(--sky), var(--gold), var(--blue));filter:blur(90px);opacity:.22;animation:spin 22s linear infinite;}
+  .hero-content{position:relative;z-index:2;max-width:860px;}
+  .hero .eyebrow{justify-content:center;}
+  .hero h1{font-size:clamp(32px,5.6vw,62px);font-weight:800;line-height:1.12;letter-spacing:-1px;background:linear-gradient(180deg,var(--ink) 40%, var(--ink-dim));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  .hero h1 .accent{background:linear-gradient(90deg,var(--sky),var(--gold-soft));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  .type-line{margin-top:22px;font-size:clamp(15px,2vw,19px);color:var(--ink-dim);min-height:30px;}
+  .hero-ctas{display:flex;gap:16px;justify-content:center;margin-top:38px;flex-wrap:wrap;}
+  .btn{position:relative;overflow:hidden;padding:16px 30px;border-radius:50px;font-weight:600;font-size:14.5px;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:transform .35s var(--ease), box-shadow .35s var(--ease);}
+  .btn-primary{background:linear-gradient(135deg,var(--blue),var(--sky));color:#fff;box-shadow:0 12px 30px rgba(59,107,255,.4);}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(59,107,255,.55);}
+  .btn-ghost{background:var(--glass-light);color:var(--ink);border:1px solid var(--line);backdrop-filter:blur(10px);}
+  .btn-ghost:hover{transform:translateY(-3px);border-color:var(--gold);}
+  .ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.5);transform:scale(0);animation:ripple .6s ease-out;pointer-events:none;}
+  @keyframes ripple{to{transform:scale(3.5);opacity:0;}}
+  .hero-stats{margin-top:64px;display:flex;gap:0;flex-wrap:wrap;justify-content:center;background:var(--glass);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:24px;padding:8px;box-shadow:var(--shadow-glow);}
+  .stat{padding:20px 30px;text-align:center;position:relative;}
+  .stat:not(:last-child)::after{content:"";position:absolute;right:0;top:20%;bottom:20%;width:1px;background:var(--line);}
+  .stat-num{font-size:29px;font-weight:800;color:var(--ink);}
+  .stat-num .plus{color:var(--gold);}
+  .stat-label{font-size:12px;color:var(--ink-dim);letter-spacing:1px;text-transform:uppercase;margin-top:4px;}
+  .scroll-cue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--ink-dim);font-size:11px;letter-spacing:2px;text-transform:uppercase;}
+  .scroll-cue .dot-track{width:22px;height:36px;border:1.5px solid var(--line);border-radius:20px;display:flex;justify-content:center;padding-top:6px;}
+  .scroll-cue .dot{width:4px;height:8px;border-radius:3px;background:var(--gold);animation:cue 1.6s ease-in-out infinite;}
+  @keyframes cue{0%{opacity:1;transform:translateY(0);}70%{opacity:0;transform:translateY(10px);}100%{opacity:0;}}
+  .wave{display:block;width:100%;position:relative;z-index:1;margin-top:-4px;}
+
+  .reveal{opacity:0;transform:translateY(36px);transition:opacity .8s var(--ease), transform .8s var(--ease);}
+  .reveal.in{opacity:1;transform:translateY(0);}
+  .reveal.zoom{transform:scale(.92);}
+  .reveal.zoom.in{transform:scale(1);}
+  .reveal.left{transform:translateX(-40px);}
+  .reveal.left.in{transform:translateX(0);}
+  .reveal.right{transform:translateX(40px);}
+  .reveal.right.in{transform:translateX(0);}
+
+  .glass-card{background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);backdrop-filter:blur(14px);position:relative;transition:transform .45s var(--ease), box-shadow .45s var(--ease), border-color .45s;}
+  .glass-card:hover{transform:translateY(-8px);box-shadow:0 24px 50px rgba(0,0,0,.35);border-color:rgba(224,183,92,.4);}
+  .grad-border{position:relative;}
+  .grad-border::before{content:"";position:absolute;inset:-1.5px;border-radius:inherit;padding:1.5px;background:linear-gradient(120deg,var(--blue),var(--sky),var(--gold),var(--blue));background-size:300% 300%;-webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .4s;animation:borderflow 6s linear infinite;}
+  .grad-border:hover::before{opacity:1;}
+  @keyframes borderflow{to{background-position:300% 0%;}}
+
+  /* ABOUT */
+  .about-wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
+  @media(max-width:900px){.about-wrap{grid-template-columns:1fr;}}
+  .about-text p{color:var(--ink-dim);font-size:15.5px;line-height:1.85;margin-bottom:16px;}
+  .about-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+  .tag{padding:8px 16px;border-radius:30px;background:var(--glass-light);border:1px solid var(--line);font-size:13px;color:var(--ink-dim);}
+  .about-photo{border-radius:24px;overflow:hidden;aspect-ratio:4/3;position:relative;}
+  .about-photo img{width:100%;height:100%;object-fit:cover;}
+  .about-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(6,11,24,.7));}
+  .about-photo-tag{position:absolute;bottom:20px;left:20px;color:#fff;font-size:13px;letter-spacing:1px;text-transform:uppercase;z-index:1;font-weight:600;}
+
+  /* INFRA GRID */
+  .infra-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  @media(max-width:1000px){.infra-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:520px){.infra-grid{grid-template-columns:1fr;}}
+  .infra-card{padding:22px 22px;display:flex;align-items:center;gap:14px;}
+  .infra-icon{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,rgba(59,107,255,.25),rgba(79,216,255,.15));display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+  .infra-card h4{font-size:13px;color:var(--ink-dim);text-transform:uppercase;letter-spacing:.6px;font-weight:600;margin-bottom:4px;}
+  .infra-card p{font-size:15.5px;font-weight:600;color:var(--ink);}
+
+  /* WHY */
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  @media(max-width:1000px){.why-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.why-grid{grid-template-columns:1fr;}}
+  .why-card{padding:32px 26px;}
+  .why-icon{width:54px;height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;background:linear-gradient(135deg,rgba(59,107,255,.25),rgba(79,216,255,.15));margin-bottom:18px;}
+  .why-card h3{font-size:18px;margin-bottom:8px;font-weight:600;}
+  .why-card p{color:var(--ink-dim);font-size:14.5px;line-height:1.65;}
+
+  /* PRINCIPAL/HM */
+  .principal{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:28px;padding:56px;overflow:hidden;position:relative;}
+  @media(max-width:850px){.principal{grid-template-columns:1fr;padding:36px 26px;}}
+  .principal-photo{aspect-ratio:1/1.05;border-radius:22px;overflow:hidden;position:relative;background:linear-gradient(135deg,var(--blue),var(--sky));}
+  .principal-photo img{width:100%;height:100%;object-fit:cover;mix-blend-mode:luminosity;opacity:.85;}
+  .principal-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(6,11,24,.75));}
+  .quote-mark{position:absolute;top:-10px;left:0;font-family:'Outfit',sans-serif;font-size:90px;color:var(--gold);opacity:.35;line-height:1;}
+  .principal blockquote{font-size:18.5px;line-height:1.75;color:var(--ink);font-weight:400;position:relative;z-index:1;}
+  .principal-name{margin-top:24px;font-weight:700;font-size:16.5px;}
+  .principal-role{color:var(--ink-dim);font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-top:2px;}
+
+  /* ACADEMICS */
+  .course-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  @media(max-width:1000px){.course-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.course-grid{grid-template-columns:1fr;}}
+  .course-card{padding:0;overflow:hidden;}
+  .course-top{height:110px;position:relative;display:flex;align-items:center;justify-content:center;font-size:38px;}
+  .course-top.c1{background:linear-gradient(135deg,#2952E3,#4FD8FF);}
+  .course-top.c2{background:linear-gradient(135deg,#3B6BFF,#1c2f6e);}
+  .course-top.c3{background:linear-gradient(135deg,#E0B75C,#f0d190);}
+  .course-top.c4{background:linear-gradient(135deg,#4FD8FF,#2952E3);}
+  .course-body{padding:24px 22px 26px;}
+  .course-body h3{font-size:19px;margin-bottom:6px;}
+  .course-body .age{color:var(--gold-soft);font-size:12px;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;margin-bottom:10px;display:block;}
+  .course-body p{color:var(--ink-dim);font-size:14px;line-height:1.6;}
+
+  /* FACILITIES */
+  .ach-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  @media(max-width:1000px){.ach-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.ach-grid{grid-template-columns:1fr;}}
+  .ach-card{padding:26px;text-align:center;}
+  .ach-num{font-size:28px;font-weight:800;background:linear-gradient(90deg,var(--sky),var(--gold-soft));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  .ach-card p{color:var(--ink-dim);font-size:13.5px;margin-top:6px;}
+
+  /* TEACHERS */
+  .teacher-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  @media(max-width:1000px){.teacher-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.teacher-grid{grid-template-columns:1fr;}}
+  .teacher-card{overflow:hidden;text-align:center;padding-bottom:24px;}
+  .teacher-photo{height:210px;overflow:hidden;position:relative;}
+  .teacher-photo img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+  .teacher-card:hover .teacher-photo img{transform:scale(1.09);}
+  .teacher-card h4{margin-top:20px;font-size:16px;}
+  .teacher-card span{color:var(--gold-soft);font-size:12.5px;letter-spacing:.5px;}
+
+  /* TIMETABLE */
+  .timetable-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  @media(max-width:700px){.timetable-grid{grid-template-columns:1fr;}}
+  .tt-card{padding:24px;}
+  .tt-card h4{font-size:14.5px;color:var(--gold-soft);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;}
+  .tt-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed var(--line);font-size:14px;}
+  .tt-row:last-child{border-bottom:none;}
+  .tt-row span:first-child{color:var(--ink-dim);}
+
+  /* GALLERY */
+  .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  @media(max-width:850px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
+  .gallery-item{border-radius:16px;overflow:hidden;cursor:pointer;position:relative;aspect-ratio:1/1;}
+  .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+  .gallery-item:hover img{transform:scale(1.12);}
+  .gallery-item::after{content:"⤢";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:26px;color:#fff;opacity:0;transition:.35s;}
+  .gallery-item:hover::after{opacity:1;background:rgba(6,11,24,.4);}
+  #lightbox{position:fixed;inset:0;background:rgba(4,8,18,.92);backdrop-filter:blur(6px);z-index:3000;display:none;align-items:center;justify-content:center;padding:5vw;}
+  #lightbox.active{display:flex;}
+  #lightbox img{max-width:min(900px,90vw);max-height:80vh;border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.6);}
+  #lightbox-close{position:absolute;top:30px;right:5vw;font-size:30px;color:#fff;cursor:pointer;background:none;border:none;}
+
+  /* REVIEWS */
+  .review-layout{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;}
+  @media(max-width:900px){.review-layout{grid-template-columns:1fr;}}
+  .review-form{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:36px;}
+  .review-form h3{font-size:19px;margin-bottom:6px;}
+  .review-form>p{color:var(--ink-dim);font-size:13.5px;margin-bottom:22px;}
+  .star-pick{display:flex;gap:6px;margin-bottom:20px;font-size:26px;}
+  .star-pick span{cursor:pointer;color:var(--line);transition:.2s;}
+  .star-pick span.active,.star-pick span:hover{color:var(--gold);}
+  .field{position:relative;margin-bottom:22px;}
+  .field input,.field textarea{width:100%;padding:16px 16px 16px 0;background:transparent;border:none;border-bottom:1.5px solid var(--line);color:var(--ink);font-size:15px;outline:none;font-family:inherit;resize:none;transition:border-color .3s;}
+  .field input:focus,.field textarea:focus{border-color:var(--gold);}
+  .field label{position:absolute;left:0;top:16px;color:var(--ink-dim);font-size:15px;pointer-events:none;transition:.25s var(--ease);}
+  .field input:focus+label,.field input:valid+label,.field textarea:focus+label,.field textarea:valid+label{top:-8px;font-size:12px;color:var(--gold);}
+  #review-msg{color:var(--sky);font-size:13.5px;margin-top:4px;min-height:18px;}
+  .review-list{display:flex;flex-direction:column;gap:16px;max-height:560px;overflow-y:auto;padding-right:6px;}
+  .review-item{padding:22px;}
+  .review-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .review-name{font-weight:700;font-size:15px;}
+  .review-date{color:var(--ink-dim);font-size:12px;margin-top:2px;}
+  .review-stars{color:var(--gold);font-size:14px;letter-spacing:2px;white-space:nowrap;}
+  .review-item p{color:var(--ink-dim);font-size:14px;line-height:1.65;margin-top:10px;}
+
+  /* TIMELINE */
+  .timeline{max-width:760px;margin:0 auto;position:relative;}
+  .timeline::before{content:"";position:absolute;left:20px;top:0;bottom:0;width:2px;background:linear-gradient(var(--blue),var(--sky));}
+  .tl-item{position:relative;padding-left:60px;margin-bottom:38px;}
+  .tl-dot{position:absolute;left:12px;top:2px;width:18px;height:18px;border-radius:50%;background:var(--navy);border:3px solid var(--gold);}
+  .tl-date{color:var(--gold-soft);font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;}
+  .tl-item h4{margin:6px 0;font-size:17px;}
+  .tl-item p{color:var(--ink-dim);font-size:14.5px;line-height:1.6;}
+
+  /* NEWS */
+  .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  @media(max-width:850px){.news-grid{grid-template-columns:1fr;}}
+  .news-card{overflow:hidden;}
+  .news-img{height:170px;overflow:hidden;}
+  .news-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+  .news-card:hover .news-img img{transform:scale(1.08);}
+  .news-body{padding:22px 24px 26px;}
+  .news-date{font-size:12px;color:var(--gold-soft);letter-spacing:1px;text-transform:uppercase;}
+  .news-body h4{margin:10px 0 8px;font-size:16px;line-height:1.4;}
+  .news-body p{color:var(--ink-dim);font-size:13.5px;line-height:1.6;}
+
+  /* FAQ */
+  .faq{max-width:760px;margin:0 auto;}
+  .faq-item{border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden;background:var(--glass);}
+  .faq-q{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;cursor:pointer;font-weight:600;font-size:15px;gap:14px;}
+  .faq-q .plus{transition:transform .35s var(--ease);color:var(--gold);font-size:20px;flex-shrink:0;}
+  .faq-item.open .faq-q .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease);}
+  .faq-a p{padding:0 24px 20px;color:var(--ink-dim);font-size:14.5px;line-height:1.7;}
+
+  /* CTA */
+  .cta-band{background:linear-gradient(120deg,var(--blue),var(--sky));border-radius:28px;padding:60px 8vw;text-align:center;position:relative;overflow:hidden;}
+  .cta-band::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(255,255,255,.25),transparent 55%);}
+  .cta-band h2{font-size:clamp(24px,3.4vw,38px);color:#fff;font-weight:700;position:relative;}
+  .cta-band p{color:rgba(255,255,255,.9);margin:14px 0 30px;position:relative;font-size:15px;}
+  .cta-band .btn-ghost{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.4);color:#fff;}
+  .cta-band .btn-primary{background:#fff;color:var(--blue);box-shadow:0 12px 30px rgba(0,0,0,.25);}
+
+  /* ADMISSION FORM */
+  .admission-form{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:40px;max-width:720px;margin:0 auto;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media(max-width:600px){.form-row{grid-template-columns:1fr;}}
+
+  /* NEWSLETTER */
+  .newsletter{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:50px;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;}
+  .newsletter h3{font-size:21px;}
+  .newsletter p{color:var(--ink-dim);font-size:14px;margin-top:6px;}
+  .newsletter-form{display:flex;gap:10px;flex:1;min-width:280px;max-width:420px;}
+  .newsletter-form input{flex:1;padding:14px 18px;border-radius:50px;border:1px solid var(--line);background:var(--glass-light);color:var(--ink);font-size:14px;outline:none;}
+  .newsletter-form input:focus{border-color:var(--gold);}
+  .newsletter-form button{padding:14px 24px;border-radius:50px;border:none;background:linear-gradient(135deg,var(--blue),var(--sky));color:#fff;font-weight:600;cursor:pointer;}
+
+  /* CONTACT */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+  @media(max-width:850px){.contact-grid{grid-template-columns:1fr;}}
+  .contact-form{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:40px;}
+  .map-wrap{border-radius:24px;overflow:hidden;border:1px solid var(--line);min-height:280px;}
+  .map-wrap iframe{width:100%;height:100%;min-height:280px;border:none;}
+  html[data-theme="dark"] .map-wrap iframe{filter:invert(.92) hue-rotate(180deg) contrast(.92);}
+
+  /* FOOTER */
+  footer{background:var(--panel);border-top:1px solid var(--line);padding:70px 8vw 30px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;padding-bottom:50px;border-bottom:1px solid var(--line);}
+  @media(max-width:850px){.footer-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:520px){.footer-grid{grid-template-columns:1fr;}}
+  .footer-grid h5{font-size:13.5px;letter-spacing:1px;text-transform:uppercase;color:var(--gold-soft);margin-bottom:18px;}
+  .footer-grid p{color:var(--ink-dim);font-size:14px;line-height:1.7;}
+  .footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
+  .footer-links a{color:var(--ink-dim);font-size:14px;transition:color .3s, padding-left .3s;}
+  .footer-links a:hover{color:var(--gold-soft);padding-left:4px;}
+  .socials{display:flex;gap:10px;margin-top:16px;}
+  .socials a{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:15px;transition:transform .3s var(--ease), background .3s, border-color .3s;}
+  .socials a:hover{transform:translateY(-4px);background:linear-gradient(135deg,var(--blue),var(--sky));border-color:transparent;}
+  .footer-bottom{padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:var(--ink-dim);font-size:13px;}
+
+  .whatsapp{position:fixed;bottom:26px;right:26px;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:26px;z-index:900;box-shadow:0 10px 26px rgba(37,211,102,.45);animation:pulse 2.4s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{box-shadow:0 10px 26px rgba(37,211,102,.45);}50%{box-shadow:0 10px 26px rgba(37,211,102,.75),0 0 0 10px rgba(37,211,102,.08);}}
+  #install-app{position:fixed;bottom:26px;left:26px;padding:12px 20px;border-radius:30px;background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(10px);color:var(--ink);font-size:13.5px;font-weight:600;cursor:pointer;z-index:900;display:none;align-items:center;gap:8px;box-shadow:var(--shadow-glow);}
+  #install-app.show{display:flex;}
+  #back-to-top{position:fixed;bottom:26px;right:96px;width:48px;height:48px;border-radius:50%;background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(10px);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;z-index:900;opacity:0;pointer-events:none;transition:opacity .4s, transform .4s var(--ease);}
+  #back-to-top.show{opacity:1;pointer-events:auto;}
+  #back-to-top:hover{transform:translateY(-4px);}
+  @media(max-width:600px){#back-to-top{right:88px;bottom:20px;width:42px;height:42px;}.whatsapp{width:50px;height:50px;bottom:20px;right:20px;}#install-app{left:16px;bottom:20px;padding:10px 16px;font-size:12.5px;}}
+
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){*{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important;}}
+</style>
+</head>
+<body>
+
+<div id="loader" aria-hidden="true">
+  <div class="loader-crest"></div>
+  <div class="loader-word">+2 GOVT. HIGH SCHOOL, KHARSAWAN</div>
+</div>
+
+<div id="progress-bar"></div>
+<div id="cursor-glow"></div>
+
+<nav id="navbar">
+  <a href="#home" class="brand"><span class="brand-mark">HS</span>GHS <span>Kharsawan</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#infrastructure">Infrastructure</a></li>
+    <li><a href="#academics">Academics</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#admission">Admission</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark and light mode">🌙</button>
+    <a href="#admission" class="nav-cta">Admission Enquiry</a>
+    <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="hero-beacon"></div>
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+
+  <div class="hero-content">
+    <p class="eyebrow reveal in">Kharsawan · Saraikela Kharsawan · Jharkhand · Est. 1948</p>
+    <h1 class="reveal in">+2 GOVT. HIGH SCHOOL <br><span class="accent">Kharsawan</span></h1>
+    <p class="type-line reveal in"><span id="typed"></span></p>
+
+    <div class="hero-ctas reveal in">
+      <a href="#admission" class="btn btn-primary">Admission Enquiry →</a>
+      <a href="#about" class="btn btn-ghost">Explore School</a>
+    </div>
+
+    <div class="hero-stats reveal in">
+      <div class="stat"><div class="stat-num"><span class="counter" data-target="1948" data-plain="true">0</span></div><div class="stat-label">Established</div></div>
+      <div class="stat"><div class="stat-num">9<span class="plus">–</span>12</div><div class="stat-label">Grades Offered</div></div>
+      <div class="stat"><div class="stat-num"><span class="counter" data-target="13">0</span></div><div class="stat-label">Classrooms</div></div>
+      <div class="stat"><div class="stat-num"><span class="counter" data-target="2500">0</span><span class="plus">+</span></div><div class="stat-label">Library Books</div></div>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><div class="dot-track"><div class="dot"></div></div>Scroll</div>
+</header>
+
+<svg class="wave" viewBox="0 0 1440 100" preserveAspectRatio="none" style="height:80px;">
+  <path fill="var(--navy-soft)" d="M0,40 C360,110 1080,-20 1440,50 L1440,100 L0,100 Z"></path>
+</svg>
+
+<!-- ABOUT -->
+<section id="about" style="background:var(--navy-soft);">
+  <div class="section-head reveal">
+    <p class="eyebrow" style="justify-content:center;">About the School</p>
+    <h2>A Government School Rooted in Kharsawan Since 1948</h2>
+  </div>
+  <div class="about-wrap">
+    <div class="about-text reveal left">
+      <p>+2 GOVT. HS KHARSAWAN was established in 1948 and is managed by the Department of Education. It is located in a rural area, in the Kharsawan block of Saraikela Kharsawan district, Jharkhand.</p>
+      <p>The school offers Grades 9 to 12 and is co-educational, without an attached pre-primary section. Hindi is the medium of instruction, and the school is approachable by an all-weather road. The academic session begins in April.</p>
+      <p>The school does not operate as a shift-school and currently does not provide a mid-day meal (Not Applicable).</p>
+      <div class="about-tags">
+        <span class="tag">Co-educational</span>
+        <span class="tag">Grades 9–12</span>
+        <span class="tag">Hindi Medium</span>
+        <span class="tag">Rural, All-Weather Road</span>
+        <span class="tag">Session Starts April</span>
+      </div>
+    </div>
+    <div class="about-photo reveal right">
+      <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=900&auto=format&fit=crop" alt="Government school campus in rural Jharkhand" loading="lazy">
+      <span class="about-photo-tag">Est. 1948 · Dept. of Education</span>
+    </div>
+  </div>
+</section>
+
+<!-- INFRASTRUCTURE -->
+<section id="infrastructure" style="background:var(--navy);">
+  <div class="section-head reveal">
+    <p class="eyebrow" style="justify-content:center;">Basic Infrastructure</p>
+    <h2>Facilities & Infrastructure Details</h2>
+    <p>UDISE Code: 20200914401 — as per official school records.</p>
+  </div>
+  <div class="infra-grid">
+    <div class="infra-card glass-card reveal"><div class="infra-icon">📍</div><div><h4>Village / Town</h4><p>Kharsawan</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">🏘️</div><div><h4>Cluster</h4><p>Aadarsh Ms Kharsawa</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">🧭</div><div><h4>Block</h4><p>Kharsawan</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">🗺️</div><div><h4>District</h4><p>Saraikela Kharsawan</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">🏛️</div><div><h4>State</h4><p>Jharkhand</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">🔢</div><div><h4>UDISE Code</h4><p>20200914401</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">🏫</div><div><h4>Building</h4><p>Government</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">🚪</div><div><h4>Classrooms</h4><p>13</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">🚻</div><div><h4>Boys Toilet</h4><p>2 (Functional)</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">🚻</div><div><h4>Girls Toilet</h4><p>2 (Functional)</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">💻</div><div><h4>Computer Aided Learning</h4><p>Yes</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">⚡</div><div><h4>Electricity</h4><p>Yes</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">🧱</div><div><h4>Boundary Wall</h4><p>Pucca</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">📚</div><div><h4>Library</h4><p>Yes</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">🏃</div><div><h4>Playground</h4><p>Yes</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">📖</div><div><h4>Books in Library</h4><p>2,500</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">🚰</div><div><h4>Drinking Water</h4><p>Hand Pumps</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">♿</div><div><h4>Ramps for Disabled</h4><p>Yes</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">🖥️</div><div><h4>Computers</h4><p>So Many Computers</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">🍽️</div><div><h4>Mid-Day Meal</h4><p>Not Applicable</p></div></div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE -->
+<section style="background:var(--navy-soft);">
+  <div class="section-head reveal">
+    <p class="eyebrow" style="justify-content:center;">Why Choose Us</p>
+    <h2>A Trusted Government School in Kharsawan</h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card glass-card grad-border reveal">
+      <div class="why-icon">🏛️</div>
+      <h3>75+ Years of Legacy</h3>
+      <p>Serving the Kharsawan community since 1948 under the Department of Education.</p>
+    </div>
+    <div class="why-card glass-card grad-border reveal" style="transition-delay:.08s;">
+      <div class="why-icon">💻</div>
+      <h3>Computer Aided Learning</h3>
+      <p>A dedicated computer lab equipped for modern, technology-supported teaching.</p>
+    </div>
+    <div class="why-card glass-card grad-border reveal" style="transition-delay:.16s;">
+      <div class="why-icon">📚</div>
+      <h3>Well-Stocked Library</h3>
+      <p>Over 2,500 books available to encourage reading and independent learning.</p>
+    </div>
+    <div class="why-card glass-card grad-border reveal" style="transition-delay:.24s;">
+      <div class="why-icon">🛡️</div>
+      <h3>Safe, Walled Campus</h3>
+      <p>A pucca boundary wall, electricity, and functional facilities across 13 classrooms.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HM MESSAGE -->
+<section style="background:var(--navy);">
+  <div class="principal reveal">
+    <div class="principal-photo">
+      <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?q=80&w=800&auto=format&fit=crop" alt="Head Master's office" loading="lazy">
+    </div>
+    <div>
+      <span class="quote-mark">"</span>
+      <blockquote>For over seven decades, this school has stood as a place where students from Kharsawan and nearby villages build the foundation for their future. We remain committed to strengthening our classrooms, library and computer lab for every student who walks through our gates.</blockquote>
+      <div class="principal-name">Message from the School</div>
+      <div class="principal-role">+2 Govt. High School, Kharsawan</div>
+    </div>
+  </div>
+</section>
+
+<!-- ACADEMICS -->
+<section id="academics" style="background:var(--navy-soft);">
+  <div class="section-head reveal">
+    <p class="eyebrow" style="justify-content:center;">Academics</p>
+    <h2>Grades Offered — 9 to 12</h2>
+    <p>A structured, Hindi-medium academic pathway from Grade 9 through Grade 12, with the session beginning every April.</p>
+  </div>
+  <div class="course-grid">
+    <div class="course-card glass-card reveal">
+      <div class="course-top c1">9</div>
+      <div class="course-body"><span class="age">Secondary</span><h3>Grade 9</h3><p>Foundational year building core subject strength ahead of board-level classes.</p></div>
+    </div>
+    <div class="course-card glass-card reveal" style="transition-delay:.08s;">
+      <div class="course-top c2">10</div>
+      <div class="course-body"><span class="age">Secondary</span><h3>Grade 10</h3><p>Board examination year with focused preparation across all subjects.</p></div>
+    </div>
+    <div class="course-card glass-card reveal" style="transition-delay:.16s;">
+      <div class="course-top c3">11</div>
+      <div class="course-body"><span class="age">Higher Secondary</span><h3>Grade 11</h3><p>Transition into higher secondary studies (+2) with expanded subject depth.</p></div>
+    </div>
+    <div class="course-card glass-card reveal" style="transition-delay:.24s;">
+      <div class="course-top c4">12</div>
+      <div class="course-body"><span class="age">Higher Secondary</span><h3>Grade 12</h3><p>Final +2 year preparing students for board exams and beyond.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITIES HIGHLIGHTS -->
+<section style="background:var(--navy);">
+  <div class="section-head reveal">
+    <p class="eyebrow" style="justify-content:center;">Facility Highlights</p>
+    <h2>Built for Learning, Sports & Growth</h2>
+  </div>
+  <div class="ach-grid">
+    <div class="ach-card glass-card reveal"><div class="ach-num">13</div><p>Classrooms in Good Condition</p></div>
+    <div class="ach-card glass-card reveal" style="transition-delay:.08s;"><div class="ach-num">2,500+</div><p>Books in the Library</p></div>
+    <div class="ach-card glass-card reveal" style="transition-delay:.16s;"><div class="ach-num">1948</div><p>Year of Establishment</p></div>
+    <div class="ach-card glass-card reveal" style="transition-delay:.24s;"><div class="ach-num">9–12</div><p>Grades Taught</p></div>
+  </div>
+</section>
+
+<!-- TEACHERS -->
+<section style="background:var(--navy-soft);">
+  <div class="section-head reveal">
+    <p class="eyebrow" style="justify-content:center;">Our Faculty</p>
+    <h2>Teachers Guiding Grades 9–12</h2>
+  </div>
+  <div class="teacher-grid">
+    <div class="teacher-card glass-card reveal">
+      <div class="teacher-photo"><img src="https://images.unsplash.com/photo-1580894908361-967195033215?q=80&w=500&auto=format&fit=crop" alt="Faculty member" loading="lazy"></div>
+      <h4>Head Master</h4><span>School Administration</span>
+    </div>
+    <div class="teacher-card glass-card reveal" style="transition-delay:.08s;">
+      <div class="teacher-photo"><img src="https://images.unsplash.com/photo-1595475884562-073c30d45670?q=80&w=500&auto=format&fit=crop" alt="Faculty member" loading="lazy"></div>
+      <h4>Science Faculty</h4><span>Grades 9–12</span>
+    </div>
+    <div class="teacher-card glass-card reveal" style="transition-delay:.16s;">
+      <div class="teacher-photo"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=500&auto=format&fit=crop" alt="Faculty member" loading="lazy"></div>
+      <h4>Mathematics Faculty</h4><span>Grades 9–12</span>
+    </div>
+    <div class="teacher-card glass-card reveal" style="transition-delay:.24s;">
+      <div class="teacher-photo"><img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=500&auto=format&fit=crop" alt="Faculty member" loading="lazy"></div>
+      <h4>Hindi & Social Science</h4><span>Grades 9–12</span>
+    </div>
+  </div>
+</section>
+
+<!-- TIMETABLE -->
+<section style="background:var(--navy);">
+  <div class="section-head reveal">
+    <p class="eyebrow" style="justify-content:center;">School Day</p>
+    <h2>A Typical Weekly Rhythm</h2>
+  </div>
+  <div class="timetable-grid">
+    <div class="tt-card glass-card reveal">
+      <h4>Grades 9 &amp; 10</h4>
+      <div class="tt-row"><span>Assembly</span><span>9:00 – 9:20</span></div>
+      <div class="tt-row"><span>Core Subjects</span><span>9:20 – 12:30</span></div>
+      <div class="tt-row"><span>Lunch Break</span><span>12:30 – 1:10</span></div>
+      <div class="tt-row"><span>Computer / Library Period</span><span>1:10 – 2:00</span></div>
+    </div>
+    <div class="tt-card glass-card reveal" style="transition-delay:.08s;">
+      <h4>Grades 11 &amp; 12 (+2)</h4>
+      <div class="tt-row"><span>Assembly</span><span>9:00 – 9:20</span></div>
+      <div class="tt-row"><span>Core Subjects</span><span>9:20 – 12:45</span></div>
+      <div class="tt-row"><span>Lunch Break</span><span>12:45 – 1:20</span></div>
+      <div class="tt-row"><span>Lab / Sports Period</span><span>1:20 – 2:10</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" style="background:var(--navy-soft);">
+  <div class="section-head reveal">
+    <p class="eyebrow" style="justify-content:center;">Campus Life</p>
+    <h2>Gallery</h2>
+    <p>A glimpse of classrooms, the library, computer lab, and playground.</p>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item reveal zoom" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop" alt="Classroom" loading="lazy"></div>
+    <div class="gallery-item reveal zoom" style="transition-delay:.06s;" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=600&auto=format&fit=crop" alt="School building" loading="lazy"></div>
+    <div class="gallery-item reveal zoom" style="transition-delay:.12s;" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=600&auto=format&fit=crop" alt="Library" loading="lazy"></div>
+    <div class="gallery-item reveal zoom" style="transition-delay:.18s;" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1541178735493-479c1a27ed24?q=80&w=600&auto=format&fit=crop" alt="Playground and sports" loading="lazy"></div>
+  </div>
+</section>
+<div id="lightbox"><button id="lightbox-close" onclick="closeLightbox()" aria-label="Close">✕</button><img id="lightbox-img" src="" alt="Gallery preview"></div>
+
+<!-- REVIEWS -->
+<section id="reviews" style="background:var(--navy);">
+  <div class="section-head reveal">
+    <p class="eyebrow" style="justify-content:center;">Community Voices</p>
+    <h2>Share a Review About This School</h2>
+    <p>Parents, students and alumni — tell others what you think about +2 Govt. HS Kharsawan.</p>
+  </div>
+  <div class="review-layout">
+    <form class="review-form glass-card reveal left" onsubmit="submitReview(event)">
+      <h3>Write Your Review</h3>
+      <p>Your review appears in the list on this device.</p>
+      <div class="star-pick" id="starPick">
+        <span data-v="1">★</span><span data-v="2">★</span><span data-v="3">★</span><span data-v="4">★</span><span data-v="5">★</span>
+      </div>
+      <div class="field"><input type="text" id="revName" required><label>Your Name</label></div>
+      <div class="field"><textarea id="revText" rows="4" required></textarea><label>Your Review</label></div>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Submit Review</button>
+      <p id="review-msg"></p>
+    </form>
+    <div class="review-list reveal right" id="reviewList"></div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section style="background:var(--navy-soft);">
+  <div class="section-head reveal">
+    <p class="eyebrow" style="justify-content:center;">Academic Calendar</p>
+    <h2>Key Dates & Events</h2>
+  </div>
+  <div class="timeline">
+    <div class="tl-item reveal left">
+      <div class="tl-dot"></div>
+      <div class="tl-date">April</div>
+      <h4>New Academic Session Begins</h4>
+      <p>The academic year starts fresh in April for all grades, 9 through 12.</p>
+    </div>
+    <div class="tl-item reveal left" style="transition-delay:.08s;">
+      <div class="tl-dot"></div>
+      <div class="tl-date">15 August</div>
+      <h4>Independence Day Celebration</h4>
+      <p>Flag hoisting and a cultural assembly organised on the school campus.</p>
+    </div>
+    <div class="tl-item reveal left" style="transition-delay:.16s;">
+      <div class="tl-dot"></div>
+      <div class="tl-date">26 January</div>
+      <h4>Republic Day Celebration</h4>
+      <p>A morning assembly with flag hoisting and student performances.</p>
+    </div>
+    <div class="tl-item reveal left" style="transition-delay:.24s;">
+      <div class="tl-dot"></div>
+      <div class="tl-date">Annually</div>
+      <h4>Annual Sports & Cultural Day</h4>
+      <p>Playground activities, competitions and celebrations for all students.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section style="background:var(--navy);">
+  <div class="section-head reveal">
+    <p class="eyebrow" style="justify-content:center;">Latest News</p>
+    <h2>From Our School</h2>
+  </div>
+  <div class="news-grid">
+    <div class="news-card glass-card reveal">
+      <div class="news-img"><img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=600&auto=format&fit=crop" alt="Admission news" loading="lazy"></div>
+      <div class="news-body"><span class="news-date">New Session</span><h4>Admissions Open for Grades 9 to 12</h4><p>Enquiries for the new academic session starting in April are now open.</p></div>
+    </div>
+    <div class="news-card glass-card reveal" style="transition-delay:.08s;">
+      <div class="news-img"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop" alt="Computer lab" loading="lazy"></div>
+      <div class="news-body"><span class="news-date">Facilities</span><h4>Computer Aided Learning Lab in Use</h4><p>Students now access computer-based learning as part of regular classes.</p></div>
+    </div>
+    <div class="news-card glass-card reveal" style="transition-delay:.16s;">
+      <div class="news-img"><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=600&auto=format&fit=crop" alt="Library" loading="lazy"></div>
+      <div class="news-body"><span class="news-date">Library</span><h4>Library Collection Crosses 2,500 Books</h4><p>Students are encouraged to make full use of the growing library resources.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="background:var(--navy-soft);">
+  <div class="section-head reveal">
+    <p class="eyebrow" style="justify-content:center;">Questions</p>
+    <h2>Frequently Asked Questions</h2>
+  </div>
+  <div class="faq reveal">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Which grades does this school teach? <span class="plus">+</span></div>
+      <div class="faq-a"><p>The school teaches Grades 9 to 12 and is co-educational, with no attached pre-primary section.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What is the medium of instruction? <span class="plus">+</span></div>
+      <div class="faq-a"><p>Hindi is the medium of instruction across all classes in the school.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">When does the academic session start? <span class="plus">+</span></div>
+      <div class="faq-a"><p>The academic session begins in April every year.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Does the school provide a mid-day meal? <span class="plus">+</span></div>
+      <div class="faq-a"><p>Mid-day meal provision is currently Not Applicable at this school.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is the school accessible by road in all weather? <span class="plus">+</span></div>
+      <div class="faq-a"><p>Yes, the school is approachable by an all-weather road throughout the year.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ADMISSION -->
+<section id="admission" style="background:var(--navy);">
+  <div class="section-head reveal">
+    <p class="eyebrow" style="justify-content:center;">Join Us</p>
+    <h2>Admission Enquiry</h2>
+    <p>Interested in admission for Grades 9 to 12? Fill the form below and our office will get back to you.</p>
+  </div>
+  <form class="admission-form reveal" onsubmit="sendMsg(event,'admission-msg')">
+    <div class="form-row">
+      <div class="field"><input type="text" required><label>Student's Full Name</label></div>
+      <div class="field"><input type="text" required><label>Applying for Grade</label></div>
+    </div>
+    <div class="form-row">
+      <div class="field"><input type="tel" required><label>Parent / Guardian Contact Number</label></div>
+      <div class="field"><input type="email"><label>Email (optional)</label></div>
+    </div>
+    <div class="field"><textarea rows="4"></textarea><label>Message (optional)</label></div>
+    <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Submit Enquiry</button>
+    <p id="admission-msg" style="color:var(--sky);font-size:13.5px;margin-top:6px;min-height:18px;"></p>
+  </form>
+
+  <div class="cta-band reveal" style="margin-top:60px;">
+    <h2>Ready to Join +2 Govt. HS Kharsawan?</h2>
+    <p>Contact the school office for admission details and document requirements.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-primary">Contact Us →</a>
+      <a href="#reviews" class="btn btn-ghost">Read Reviews</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section style="background:var(--navy-soft);padding-top:0;">
+  <div class="newsletter reveal">
+    <div>
+      <h3>Stay Updated</h3>
+      <p>Get notified about admission dates, events and school announcements.</p>
+    </div>
+    <form class="newsletter-form" onsubmit="subscribeNews(event)">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:var(--navy);">
+  <div class="section-head reveal">
+    <p class="eyebrow" style="justify-content:center;">Get In Touch</p>
+    <h2>Contact Us</h2>
+    <p>Reach out to the school office in Kharsawan for any queries.</p>
+  </div>
+  <div class="contact-grid">
+    <form class="contact-form reveal left" onsubmit="sendMsg(event,'msg')">
+      <div class="field"><input type="text" required><label>Full Name</label></div>
+      <div class="field"><input type="email" required><label>Email Address</label></div>
+      <div class="field"><textarea rows="4" required></textarea><label>Message</label></div>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Send Message</button>
+      <p id="msg" style="color:var(--sky);font-size:13.5px;margin-top:6px;min-height:18px;"></p>
+    </form>
+    <div class="map-wrap reveal right">
+      <iframe src="https://maps.google.com/maps?q=kharsawan&t=&z=13&ie=UTF8&iwloc=&output=embed" title="School location map" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a href="#home" class="brand" style="margin-bottom:14px;display:flex;"><span class="brand-mark">HS</span>GHS <span>Kharsawan</span></a>
+      <p>+2 GOVT. HIGH SCHOOL, Kharsawan — a Department of Education institution serving Grades 9 to 12 since 1948.</p>
+      <div class="socials">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">◎</a>
+        <a href="#" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+    <div>
+      <h5>Quick Links</h5>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#infrastructure">Infrastructure</a></li>
+        <li><a href="#academics">Academics</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>School Info</h5>
+      <ul class="footer-links">
+        <li><a href="#about">Grades 9–12</a></li>
+        <li><a href="#about">Co-educational</a></li>
+        <li><a href="#about">Hindi Medium</a></li>
+        <li><a href="#admission">Admission</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Contact</h5>
+      <p>Kharsawan, Saraikela Kharsawan, Jharkhand</p>
+      <p style="margin-top:8px;">UDISE Code: 20200914401</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 +2 GOVT. HS Kharsawan. All rights reserved.</p>
+    <p>Developed by <b>Shivam Kumar Pani</b></p>
+  </div>
+</footer>
+
+<a class="whatsapp" href="#contact" aria-label="Contact the school">💬</a>
+<button id="install-app" aria-label="Install app"><span>⬇</span> Install App</button>
+<button id="back-to-top" aria-label="Back to top">↑</button>
+
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{});});
+}
+let deferredPrompt;
+const installBtn=document.getElementById('install-app');
+window.addEventListener('beforeinstallprompt',(e)=>{
+  e.preventDefault();deferredPrompt=e;installBtn.classList.add('show');
+});
+installBtn.addEventListener('click',async()=>{
+  if(!deferredPrompt)return;
+  deferredPrompt.prompt();
+  await deferredPrompt.userChoice;
+  deferredPrompt=null;installBtn.classList.remove('show');
+});
+
+window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('loader').classList.add('hide'),500);});
+
+const progressBar=document.getElementById('progress-bar');
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  const scrolled=(h.scrollTop)/(h.scrollHeight-h.clientHeight)*100;
+  progressBar.style.width=scrolled+'%';
+  document.getElementById('navbar').classList.toggle('scrolled',h.scrollTop>40);
+  document.getElementById('back-to-top').classList.toggle('show',h.scrollTop>500);
+});
+document.getElementById('back-to-top').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+const glow=document.getElementById('cursor-glow');
+document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';});
+
+const burger=document.getElementById('burger');
+const navLinks=document.getElementById('navLinks');
+burger.addEventListener('click',()=>{burger.classList.toggle('open');navLinks.classList.toggle('open');});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{burger.classList.remove('open');navLinks.classList.remove('open');}));
+
+const sections=document.querySelectorAll('section[id], header[id]');
+const navA=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let current='';
+  sections.forEach(sec=>{const top=sec.offsetTop-140;if(scrollY>=top)current=sec.getAttribute('id');});
+  navA.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current));
+});
+
+const themeBtn=document.getElementById('themeToggle');
+const root=document.documentElement;
+function setTheme(t){root.setAttribute('data-theme',t);themeBtn.textContent=t==='dark'?'🌙':'☀️';}
+setTheme('dark');
+themeBtn.addEventListener('click',()=>{const cur=root.getAttribute('data-theme')==='dark'?'light':'dark';setTheme(cur);});
+
+const phrases=["A Government School serving Kharsawan since 1948.","Grades 9 to 12 · Hindi Medium · Co-Educational.","Library of 2,500+ books & a computer learning lab."];
+let pIdx=0,cIdx=0,deleting=false;
+const typedEl=document.getElementById('typed');
+function typeLoop(){
+  const current=phrases[pIdx];
+  typedEl.textContent=deleting?current.substring(0,cIdx--):current.substring(0,cIdx++);
+  let delay=deleting?28:48;
+  if(!deleting&&cIdx===current.length+1){delay=1600;deleting=true;}
+  else if(deleting&&cIdx===0){deleting=false;pIdx=(pIdx+1)%phrases.length;delay=400;}
+  setTimeout(typeLoop,delay);
+}
+typeLoop();
+
+document.querySelectorAll('.btn').forEach(btn=>{
+  btn.addEventListener('click',function(e){
+    const r=document.createElement('span');r.className='ripple';
+    const rect=this.getBoundingClientRect();
+    r.style.left=(e.clientX-rect.left)+'px';r.style.top=(e.clientY-rect.top)+'px';
+    this.appendChild(r);setTimeout(()=>r.remove(),650);
+  });
+});
+
+const revealEls=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+},{threshold:0.15});
+revealEls.forEach(el=>io.observe(el));
+
+const counters=document.querySelectorAll('.counter');
+const cio=new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{
+    if(en.isIntersecting){
+      const el=en.target,target=+el.dataset.target,isPlain=el.dataset.plain==='true';
+      if(isPlain){el.textContent=target;cio.unobserve(el);return;}
+      let val=0;const step=Math.max(1,Math.ceil(target/60));
+      const tick=()=>{val+=step;if(val>=target){el.textContent=target;}else{el.textContent=val;requestAnimationFrame(()=>setTimeout(tick,16));}};
+      tick();cio.unobserve(el);
+    }
+  });
+},{threshold:0.5});
+counters.forEach(c=>cio.observe(c));
+
+function openLightbox(el){
+  document.getElementById('lightbox-img').src=el.querySelector('img').src;
+  document.getElementById('lightbox').classList.add('active');
+}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('active');}
+document.getElementById('lightbox').addEventListener('click',e=>{if(e.target.id==='lightbox')closeLightbox();});
+
+function toggleFaq(el){
+  const item=el.parentElement;
+  const answer=item.querySelector('.faq-a');
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight=null;});
+  if(!wasOpen){item.classList.add('open');answer.style.maxHeight=answer.scrollHeight+'px';}
+}
+
+function sendMsg(e,targetId){
+  e.preventDefault();
+  document.getElementById(targetId).innerText='Thank you! We have received your message.';
+  e.target.reset();
+}
+function subscribeNews(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('button');const original=btn.textContent;
+  btn.textContent='Subscribed ✓';setTimeout(()=>btn.textContent=original,2500);e.target.reset();
+}
+
+/* STAR RATING */
+let selectedStars=0;
+document.querySelectorAll('#starPick span').forEach(star=>{
+  star.addEventListener('click',()=>{
+    selectedStars=+star.dataset.v;
+    document.querySelectorAll('#starPick span').forEach(s=>s.classList.toggle('active',+s.dataset.v<=selectedStars));
+  });
+});
+
+/* REVIEWS (in-memory, resets on page reload) */
+const sampleReviews=[
+  {name:"Parent of a Grade 10 Student",stars:5,text:"Good government school with a caring staff. The computer lab has really helped my child.",date:"2 weeks ago"},
+  {name:"Local Resident",stars:4,text:"Well-known school in Kharsawan since decades. Library facility is a big plus for students.",date:"1 month ago"},
+  {name:"Grade 12 Student",stars:5,text:"Teachers are supportive and the playground gives us good space for sports after classes.",date:"1 month ago"}
+];
+const reviewListEl=document.getElementById('reviewList');
+function renderReviews(){
+  reviewListEl.innerHTML='';
+  sampleReviews.forEach(r=>{
+    const div=document.createElement('div');
+    div.className='review-item glass-card';
+    div.innerHTML=`<div class="review-head"><div><div class="review-name">${escapeHtml(r.name)}</div><div class="review-date">${r.date}</div></div><div class="review-stars">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}</div></div><p>${escapeHtml(r.text)}</p>`;
+    reviewListEl.appendChild(div);
+  });
+}
+function escapeHtml(str){
+  const d=document.createElement('div');d.textContent=str;return d.innerHTML;
+}
+renderReviews();
+
+function submitReview(e){
+  e.preventDefault();
+  const name=document.getElementById('revName').value.trim();
+  const text=document.getElementById('revText').value.trim();
+  if(!name||!text||selectedStars===0){
+    document.getElementById('review-msg').innerText='Please add your name, a rating and a review.';
+    return;
+  }
+  sampleReviews.unshift({name,stars:selectedStars,text,date:"Just now"});
+  renderReviews();
+  document.getElementById('review-msg').innerText='Thank you! Your review has been added.';
+  e.target.reset();
+  selectedStars=0;
+  document.querySelectorAll('#starPick span').forEach(s=>s.classList.remove('active'));
+}
+</script>
+</body>
+</html>
