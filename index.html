@@ -178,15 +178,201 @@
   .why-card p{color:var(--ink-dim);font-size:14.5px;line-height:1.65;}
 
   /* PRINCIPAL/HM */
-  .principal{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:28px;padding:56px;overflow:hidden;position:relative;}
-  @media(max-width:850px){.principal{grid-template-columns:1fr;padding:36px 26px;}}
-  .principal-photo{aspect-ratio:1/1.05;border-radius:22px;overflow:hidden;position:relative;background:linear-gradient(135deg,var(--blue),var(--sky));}
-  .principal-photo img{width:100%;height:100%;object-fit:cover;mix-blend-mode:luminosity;opacity:.85;}
-  .principal-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(6,11,24,.75));}
-  .quote-mark{position:absolute;top:-10px;left:0;font-family:'Outfit',sans-serif;font-size:90px;color:var(--gold);opacity:.35;line-height:1;}
-  .principal blockquote{font-size:18.5px;line-height:1.75;color:var(--ink);font-weight:400;position:relative;z-index:1;}
-  .principal-name{margin-top:24px;font-weight:700;font-size:16.5px;}
-  .principal-role{color:var(--ink-dim);font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-top:2px;}
+  /* =========================================
+   PRINCIPAL / HEADMASTER
+   ========================================= */
+
+.principal {
+    display: grid;
+    grid-template-columns: .85fr 1.15fr;
+    gap: 60px;
+    align-items: center;
+
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    padding: 56px;
+
+    overflow: hidden;
+    position: relative;
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 850px) {
+    .principal {
+        grid-template-columns: 1fr;
+        padding: 36px 26px;
+        gap: 35px;
+    }
+}
+
+
+/* =========================================
+   PRINCIPAL PHOTO CONTAINER
+   ========================================= */
+
+.principal-photo {
+    aspect-ratio: 1 / 1.05;
+
+    border-radius: 22px;
+    overflow: hidden;
+
+    position: relative;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #38bdf8,
+        #8b5cf6
+    );
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, .25),
+        0 0 35px rgba(56, 189, 248, .15);
+
+    isolation: isolate;
+}
+
+
+/* =========================================
+   PRINCIPAL IMAGE
+   ========================================= */
+
+.principal-photo img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    /* Keep original colours */
+    opacity: 1;
+    mix-blend-mode: normal;
+
+    /* Make image more vibrant & clear */
+    filter:
+        saturate(1.25)
+        contrast(1.08)
+        brightness(1.05);
+
+    transition:
+        transform .6s ease,
+        filter .6s ease;
+}
+
+
+/* =========================================
+   SOFT IMAGE OVERLAY
+   ========================================= */
+
+.principal-photo::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(20, 100, 255, .03) 0%,
+            rgba(0, 0, 0, 0) 55%,
+            rgba(6, 11, 24, .25) 100%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   HOVER EFFECT
+   ========================================= */
+
+.principal-photo:hover img {
+    transform: scale(1.03);
+
+    filter:
+        saturate(1.35)
+        contrast(1.08)
+        brightness(1.08);
+}
+
+
+/* =========================================
+   QUOTE MARK
+   ========================================= */
+
+.quote-mark {
+    position: absolute;
+
+    top: -10px;
+    left: 0;
+
+    font-family: 'Outfit', sans-serif;
+
+    font-size: 90px;
+
+    color: var(--gold);
+
+    opacity: .35;
+
+    line-height: 1;
+
+    z-index: 2;
+}
+
+
+/* =========================================
+   PRINCIPAL QUOTE
+   ========================================= */
+
+.principal blockquote {
+    font-size: 18.5px;
+    line-height: 1.75;
+
+    color: var(--ink);
+
+    font-weight: 400;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* =========================================
+   PRINCIPAL NAME
+   ========================================= */
+
+.principal-name {
+    margin-top: 24px;
+
+    font-weight: 700;
+
+    font-size: 16.5px;
+}
+
+
+/* =========================================
+   PRINCIPAL ROLE
+   ========================================= */
+
+.principal-role {
+    color: var(--ink-dim);
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    margin-top: 2px;
+}
 
   /* ACADEMICS */
   .course-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
@@ -449,25 +635,25 @@
     <p>UDISE Code: 20200914401 — as per official school records.</p>
   </div>
   <div class="infra-grid">
-    <div class="infra-card glass-card reveal"><div class="infra-icon">📍</div><div><h4>Village / Town</h4><p>Kharsawan</p></div></div>
-    <div class="infra-card glass-card reveal"><div class="infra-icon">🏘️</div><div><h4>Cluster</h4><p>Aadarsh Ms Kharsawa</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">📍</div><div><h4>Town</h4><p>Kharsawan</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">🏘️</div><div><h4>Cluster</h4><p>Aadarsh MS Kharsawa</p></div></div>
     <div class="infra-card glass-card reveal"><div class="infra-icon">🧭</div><div><h4>Block</h4><p>Kharsawan</p></div></div>
-    <div class="infra-card glass-card reveal"><div class="infra-icon">🗺️</div><div><h4>District</h4><p>Saraikela Kharsawan</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">🗺️</div><div><h4>District</h4><p>Seraikela Kharsawan</p></div></div>
     <div class="infra-card glass-card reveal"><div class="infra-icon">🏛️</div><div><h4>State</h4><p>Jharkhand</p></div></div>
     <div class="infra-card glass-card reveal"><div class="infra-icon">🔢</div><div><h4>UDISE Code</h4><p>20200914401</p></div></div>
     <div class="infra-card glass-card reveal"><div class="infra-icon">🏫</div><div><h4>Building</h4><p>Government</p></div></div>
-    <div class="infra-card glass-card reveal"><div class="infra-icon">🚪</div><div><h4>Classrooms</h4><p>13</p></div></div>
-    <div class="infra-card glass-card reveal"><div class="infra-icon">🚻</div><div><h4>Boys Toilet</h4><p>2 (Functional)</p></div></div>
-    <div class="infra-card glass-card reveal"><div class="infra-icon">🚻</div><div><h4>Girls Toilet</h4><p>2 (Functional)</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">🚪</div><div><h4>Classrooms</h4><p>20</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">🚻</div><div><h4>Boys Toilet</h4><p>6 (Functional)</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">🚻</div><div><h4>Girls Toilet</h4><p>6 (Functional)</p></div></div>
     <div class="infra-card glass-card reveal"><div class="infra-icon">💻</div><div><h4>Computer Aided Learning</h4><p>Yes</p></div></div>
     <div class="infra-card glass-card reveal"><div class="infra-icon">⚡</div><div><h4>Electricity</h4><p>Yes</p></div></div>
     <div class="infra-card glass-card reveal"><div class="infra-icon">🧱</div><div><h4>Boundary Wall</h4><p>Pucca</p></div></div>
     <div class="infra-card glass-card reveal"><div class="infra-icon">📚</div><div><h4>Library</h4><p>Yes</p></div></div>
     <div class="infra-card glass-card reveal"><div class="infra-icon">🏃</div><div><h4>Playground</h4><p>Yes</p></div></div>
     <div class="infra-card glass-card reveal"><div class="infra-icon">📖</div><div><h4>Books in Library</h4><p>2,500</p></div></div>
-    <div class="infra-card glass-card reveal"><div class="infra-icon">🚰</div><div><h4>Drinking Water</h4><p>Hand Pumps</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">🚰</div><div><h4>Drinking Water</h4><p>Aqua Guard</p></div></div>
     <div class="infra-card glass-card reveal"><div class="infra-icon">♿</div><div><h4>Ramps for Disabled</h4><p>Yes</p></div></div>
-    <div class="infra-card glass-card reveal"><div class="infra-icon">🖥️</div><div><h4>Computers</h4><p>So Many Computers</p></div></div>
+    <div class="infra-card glass-card reveal"><div class="infra-icon">🖥️</div><div><h4>Computers</h4><p>70</p></div></div>
     <div class="infra-card glass-card reveal"><div class="infra-icon">🍽️</div><div><h4>Mid-Day Meal</h4><p>Not Applicable</p></div></div>
   </div>
 </section>
@@ -503,10 +689,10 @@
 </section>
 
 <!-- HM MESSAGE -->
-<section style="background:var(--navy);">
+<section style="background:var(--white);">
   <div class="principal reveal">
     <div class="principal-photo">
-      <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?q=80&w=800&auto=format&fit=crop" alt="Head Master's office" loading="lazy">
+      <img src="C:\Users\HP\Desktop\+2 Govt. HS kharsawan\teacher2.jpg" alt="Head Master's office" loading="lazy">
     </div>
     <div>
       <span class="quote-mark">"</span>
@@ -522,7 +708,7 @@
   <div class="section-head reveal">
     <p class="eyebrow" style="justify-content:center;">Academics</p>
     <h2>Grades Offered — 9 to 12</h2>
-    <p>A structured, Hindi-medium academic pathway from Grade 9 through Grade 12, with the session beginning every April.</p>
+    <p>A structured, Hindi & English medium academic pathway from Grade 9 through Grade 12, with the session beginning every April.</p>
   </div>
   <div class="course-grid">
     <div class="course-card glass-card reveal">
@@ -561,25 +747,29 @@
 <!-- TEACHERS -->
 <section style="background:var(--navy-soft);">
   <div class="section-head reveal">
-    <p class="eyebrow" style="justify-content:center;">Our Faculty</p>
+    <p class="eyebrow" style="justify-content:center;">Our Teachers</p>
     <h2>Teachers Guiding Grades 9–12</h2>
   </div>
   <div class="teacher-grid">
     <div class="teacher-card glass-card reveal">
-      <div class="teacher-photo"><img src="https://images.unsplash.com/photo-1580894908361-967195033215?q=80&w=500&auto=format&fit=crop" alt="Faculty member" loading="lazy"></div>
-      <h4>Head Master</h4><span>School Administration</span>
+      <div class="teacher-photo"><img src="C:\Users\HP\Desktop\+2 Govt. HS kharsawan\teacher2.jpg"alt="Faculty member" loading="lazy"></div>
+      <h4>Mrs. Manju Kumari Hembram</h4><span>Principal</span>
+      <h4>Biology Teacher</h4><span>Grades 9–12</span>
     </div>
     <div class="teacher-card glass-card reveal" style="transition-delay:.08s;">
-      <div class="teacher-photo"><img src="https://images.unsplash.com/photo-1595475884562-073c30d45670?q=80&w=500&auto=format&fit=crop" alt="Faculty member" loading="lazy"></div>
-      <h4>Science Faculty</h4><span>Grades 9–12</span>
+      <div class="teacher-photo"><img src="teacher.jpg" alt="Faculty Member" loading="lazy"></div>
+      <h4>Mr. Raj Panda</h4>
+      <h4>Science Teacher</h4><span>Grades 9–12</span>
     </div>
     <div class="teacher-card glass-card reveal" style="transition-delay:.16s;">
-      <div class="teacher-photo"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=500&auto=format&fit=crop" alt="Faculty member" loading="lazy"></div>
-      <h4>Mathematics Faculty</h4><span>Grades 9–12</span>
+      <div class="teacher-photo"><img src="C:\Users\HP\Desktop\+2 Govt. HS kharsawan\image3.jpg"alt="Faculty member" loading="lazy"></div>
+      <h4>Mr. Raj Rameswar Munda</h4>
+      <h4>Mathematics Teacher</h4><span>Grades 9–12</span>
     </div>
     <div class="teacher-card glass-card reveal" style="transition-delay:.24s;">
-      <div class="teacher-photo"><img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=500&auto=format&fit=crop" alt="Faculty member" loading="lazy"></div>
-      <h4>Hindi & Social Science</h4><span>Grades 9–12</span>
+      <div class="teacher-photo"><img src="teacher1.jpg" alt="Faculty member" loading="lazy"></div>
+      <h4>Mr. Khagen Kaibarta</h4>
+      <h4>Social Science Teacher</h4><span>Grades 9–12</span>
     </div>
   </div>
 </section>
@@ -593,17 +783,17 @@
   <div class="timetable-grid">
     <div class="tt-card glass-card reveal">
       <h4>Grades 9 &amp; 10</h4>
-      <div class="tt-row"><span>Assembly</span><span>9:00 – 9:20</span></div>
-      <div class="tt-row"><span>Core Subjects</span><span>9:20 – 12:30</span></div>
-      <div class="tt-row"><span>Lunch Break</span><span>12:30 – 1:10</span></div>
-      <div class="tt-row"><span>Computer / Library Period</span><span>1:10 – 2:00</span></div>
+      <div class="tt-row"><span>Assembly</span><span>9:20 – 9:35</span></div>
+      <div class="tt-row"><span>Core Subjects</span><span>9:40 – 12:00</span></div>
+      <div class="tt-row"><span>Lunch Break</span><span>12:00 – 12:30</span></div>
+      <div class="tt-row"><span>Computer / Library Period</span><span>12:35 – 3:00</span></div>
     </div>
     <div class="tt-card glass-card reveal" style="transition-delay:.08s;">
       <h4>Grades 11 &amp; 12 (+2)</h4>
-      <div class="tt-row"><span>Assembly</span><span>9:00 – 9:20</span></div>
-      <div class="tt-row"><span>Core Subjects</span><span>9:20 – 12:45</span></div>
-      <div class="tt-row"><span>Lunch Break</span><span>12:45 – 1:20</span></div>
-      <div class="tt-row"><span>Lab / Sports Period</span><span>1:20 – 2:10</span></div>
+      <div class="tt-row"><span>Assembly</span><span>9:20 – 9:35</span></div>
+      <div class="tt-row"><span>Core Subjects</span><span>9:40 – 12:00</span></div>
+      <div class="tt-row"><span>Lunch Break</span><span>12:00 – 12:30</span></div>
+      <div class="tt-row"><span>Lab / Another Subjects</span><span>12:35 – 3:00</span></div>
     </div>
   </div>
 </section>
@@ -616,10 +806,10 @@
     <p>A glimpse of classrooms, the library, computer lab, and playground.</p>
   </div>
   <div class="gallery-grid">
-    <div class="gallery-item reveal zoom" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop" alt="Classroom" loading="lazy"></div>
-    <div class="gallery-item reveal zoom" style="transition-delay:.06s;" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=600&auto=format&fit=crop" alt="School building" loading="lazy"></div>
-    <div class="gallery-item reveal zoom" style="transition-delay:.12s;" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=600&auto=format&fit=crop" alt="Library" loading="lazy"></div>
-    <div class="gallery-item reveal zoom" style="transition-delay:.18s;" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1541178735493-479c1a27ed24?q=80&w=600&auto=format&fit=crop" alt="Playground and sports" loading="lazy"></div>
+    <div class="gallery-item reveal zoom" style="transition-delay:.03s;" onclick="openLightbox(this)"><img src="C:\Users\HP\Desktop\+2 Govt. HS kharsawan\image4.jpg"alt="Classroom" loading="lazy"></div>
+    <div class="gallery-item reveal zoom" style="transition-delay:.06s;" onclick="openLightbox(this)"><img src="C:\Users\HP\Desktop\+2 Govt. HS kharsawan\image5.jpg"alt="School Computer Labs" loading="lazy"></div>
+    <div class="gallery-item reveal zoom" style="transition-delay:.12s;" onclick="openLightbox(this)"><img src="C:\Users\HP\Desktop\+2 Govt. HS kharsawan\image6.jpg" alt="Library" loading="lazy"></div>
+    <div class="gallery-item reveal zoom" style="transition-delay:.18s;" onclick="openLightbox(this)"><img src="C:\Users\HP\Desktop\+2 Govt. HS kharsawan\image7.jpg" alt="Students Group/Activity" loading="lazy"></div>
   </div>
 </section>
 <div id="lightbox"><button id="lightbox-close" onclick="closeLightbox()" aria-label="Close">✕</button><img id="lightbox-img" src="" alt="Gallery preview"></div>
@@ -690,7 +880,7 @@
   <div class="news-grid">
     <div class="news-card glass-card reveal">
       <div class="news-img"><img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=600&auto=format&fit=crop" alt="Admission news" loading="lazy"></div>
-      <div class="news-body"><span class="news-date">New Session</span><h4>Admissions Open for Grades 9 to 12</h4><p>Enquiries for the new academic session starting in April are now open.</p></div>
+      <div class="news-body"><span class="news-date">New Session</span><h4>Admissions closed for Grades 9 to 12</h4><p>Enquiries for the new academic session starting in April are now closed.</p></div>
     </div>
     <div class="news-card glass-card reveal" style="transition-delay:.08s;">
       <div class="news-img"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop" alt="Computer lab" loading="lazy"></div>
@@ -824,7 +1014,7 @@
       <ul class="footer-links">
         <li><a href="#about">Grades 9–12</a></li>
         <li><a href="#about">Co-educational</a></li>
-        <li><a href="#about">Hindi Medium</a></li>
+        <li><a href="#about">Hindi & English Both Medium</a></li>
         <li><a href="#admission">Admission</a></li>
       </ul>
     </div>
@@ -835,7 +1025,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2026 +2 GOVT. HS Kharsawan. All rights reserved.</p>
+    <p>© 2026 +2 Government High School Kharsawan. All rights reserved.</p>
     <p>Developed by <b>Shivam Kumar Pani</b></p>
   </div>
 </footer>
@@ -973,6 +1163,7 @@ document.querySelectorAll('#starPick span').forEach(star=>{
 
 /* REVIEWS (in-memory, resets on page reload) */
 const sampleReviews=[
+  {name:"Shivam Kumar Pani", stars:5,text:"I am proud to say that this is one of the best government schools in Kharsawan, and I say this from experience — largely because of the exceptional guidance provided by its teachers.I am a proud alumnus of this school, having completed my studies with the batch of 2021–2023. I was honored to be awarded the Gold Medal as the Best Student of the Year 2023, and I was also the Class 10th Matriculation topper of the school.I owe a special debt of gratitude to my class teacher, Mr. Raj Panda, and our Principal, Mrs. Manju Hembram, for their constant support and encouragement throughout my academic journey. I am equally thankful to every teacher at this institution — they did not merely teach subjects; they instilled in us discipline, values, and a strong sense of character.This school has given me far more than I can ever put into words. Above all, I am grateful to my teachers not just for educating me, but for helping me discover who I truly am.", date:"1 weeks ago"},
   {name:"Parent of a Grade 10 Student",stars:5,text:"Good government school with a caring staff. The computer lab has really helped my child.",date:"2 weeks ago"},
   {name:"Local Resident",stars:4,text:"Well-known school in Kharsawan since decades. Library facility is a big plus for students.",date:"1 month ago"},
   {name:"Grade 12 Student",stars:5,text:"Teachers are supportive and the playground gives us good space for sports after classes.",date:"1 month ago"}
